@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -16,10 +17,29 @@ public class ItensPedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	
+	@ManyToOne
+	private Pedido pedido;
+	@ManyToOne
+	private Produto produto;
+	
 	private Double quantidade;
 	private Double quantDisponivel;
 	private String status;
 	
+	
+	public Pedido getPedido() {
+		return pedido;
+	}
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+	public Produto getProduto() {
+		return produto;
+	}
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
 	public long getId() {
 		return id;
 	}

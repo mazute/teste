@@ -23,9 +23,10 @@ public class Pedido implements Serializable {
 	private String status;
 	private String observacao;
 	@ManyToOne
-	private Cidade cidade;
+	private Cliente cliente;
 	@ManyToOne
 	private Funcionario funcionario;
+	
 	public long getId() {
 		return id;
 	}
@@ -44,11 +45,11 @@ public class Pedido implements Serializable {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	public Cidade getCidade() {
-		return cidade;
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setCidade(Cidade cidade) {
-		this.cidade = cidade;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	public Funcionario getFuncionario() {
 		return funcionario;
@@ -56,6 +57,10 @@ public class Pedido implements Serializable {
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 	
 }

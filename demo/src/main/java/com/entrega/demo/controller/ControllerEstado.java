@@ -1,5 +1,6 @@
 package com.entrega.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -32,6 +33,14 @@ public class ControllerEstado {
 	public ModelAndView add(Estado estado) {
 		ModelAndView mv = new ModelAndView("/estados");
 		mv.addObject("estado", estado);
+		return mv;
+	}
+	
+	@PostMapping("/buscarEstado")
+	public ModelAndView buscarEstado(String nome) {
+		ModelAndView mv = new ModelAndView("estado");
+		List<Estado> est = repositorioEstado.buscarPorNome(nome);
+		mv.addObject("estados", est);
 		return mv;
 	}
 	
