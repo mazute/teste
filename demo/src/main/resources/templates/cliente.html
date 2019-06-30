@@ -50,36 +50,37 @@
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-lg-9">
-							<form th:action="@{/cliente/buscarCliente}" method="post" id="buscarEstado">
-										<div class="form-group">
-											<label class="col-md-2 control-label">Pesquisar Cliente</label>
-											<div class="col-md-8">
-												<input name="nome" class="form-control input-md"
-													type="text" id="nome" />
-											</div>
+							<div class="col-lg-13">
+								<form th:action="@{/cliente/buscarCliente}" method="post"
+									id="buscarEstado">
+									<div class="row form-group">
+										<label class="col-md-2 control-label">Pesquisar
+											Cliente</label>
+										<div class="col-md-8">
+											<input name="nome" class="form-control input-md" type="text"
+												id="nome" />
 										</div>
-										<div class="form-group">
-											<div class="col-md-2">
-												<button type="submit"
-													class="form-control input-md btn btn-primary"
-													value="Buscar" id="btnBuscar">Buscar</button>
-											</div>
+										<div class="col-md-2">
+											<button type="submit"
+												class="form-control input-md btn btn-primary" value="Buscar"
+												id="btnBuscar">Buscar</button>
 										</div>
-									</form>
-								<div class="table-responsive table--no-card m-b-30">
+									</div>
+								</form>
+								<div class="form-group">
+									<a class="au-btn au-btn-icon au-btn--green"
+										th:href="@{/cliente/add}"> <i class="zmdi zmdi-plus"></i>Adicionar
+									</a>
+								</div>
+								<div class="table-responsive table--no-card m-b-10">
 									<table
 										class="table table-borderless table-striped table-earning">
 										<thead>
 											<tr>
-												<th></th>
-												<th>Código</th>
+												<th>Cod</th>
 												<th>Nome</th>
 												<th>Endereço</th>
-												<th>Número</th>
-												<th>Bairro</th>
 												<th>Cidade</th>
-												<th>Telefone</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -88,12 +89,10 @@
 											<td th:text="${cliente.id}"></td>
 											<td th:text="${cliente.nome}"></td>
 											<td th:text="${cliente.endereco}"></td>
-											<td th:text="${cliente.numero}"></td>
-											<td th:text="${cliente.bairro}"></td>
 											<td th:text="${cliente.cidade.nome}"></td>
-											<td th:text="${cliente.telefone}"></td>
-											<td><a th:href="@{/cliente/alterar/{id}(id=${cliente.id})}">Alterar</a>
-												<a th:href="@{/cliente/remover/{id}(id=${cliente.id})}">Excluir</a></td>
+											<td><a class="btn btn-warning" 
+												th:href="@{/cliente/alterar/{id}(id=${cliente.id})}">Alterar</a>
+												<a class="btn btn-danger" th:href="@{/cliente/remover/{id}(id=${cliente.id})}">Excluir</a></td>
 										</tr>
 										</tbody>
 									</table>

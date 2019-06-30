@@ -68,7 +68,7 @@
 									</div>
 								</form>
 								<div class="form-group">
-								  <a class="au-btn au-btn-icon au-btn--blue" th:href="@{/produto/add}">
+								  <a class="au-btn au-btn-icon au-btn--green" th:href="@{/produto/add}">
                                         <i class="zmdi zmdi-plus"></i>Adicionar</a>
                                 </div>
 								<div class="table-responsive table--no-card m-b-30">
@@ -91,9 +91,9 @@
 											<td th:text="${produto.estoque}"></td>
 											<td th:text="${produto.custo}"></td>
 											<td th:text="${produto.medida.sigla}"></td>
-											<td><a
+											<td><a class="btn btn-warning" 
 												th:href="@{/produto/editar/{id}(id=${produto.id})}">Alterar</a>
-												<a th:href="@{/produto/remover/{id}(id=${produto.id})}">Excluir</a></td>
+												<a class="btn btn-danger" th:href="@{/produto/remover/{id}(id=${produto.id})}">Excluir</a></td>
 										</tr>
 										</tbody>
 									</table>
