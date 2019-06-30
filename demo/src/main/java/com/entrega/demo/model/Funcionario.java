@@ -14,8 +14,6 @@ public class Funcionario extends Pessoa implements Serializable{
 	@NotEmpty(message = "Senha é obrigatoria")
 	private String senha;
 	
-	@Column(length=20)
-	@NotEmpty(message = "Cargo é obrigatorio")
 	private String cargo;
 	
 	private String filial;
