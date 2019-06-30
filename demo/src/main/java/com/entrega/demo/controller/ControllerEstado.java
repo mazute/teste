@@ -11,60 +11,72 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.entrega.demo.model.Estado;
+import com.entrega.demo.repository.ControllerInterface;
 import com.entrega.demo.repository.EstadoRepository;
 
 @Controller
-public class ControllerEstado {
+@RequestMapping("/estado")
+public class ControllerEstado implements ControllerInterface<Estado>{
 	
 	@Autowired
 	private EstadoRepository repositorioEstado;
 
-	@GetMapping("/estado")
-	public ModelAndView listarEstado() {
+	
+	@GetMapping("/listar")
+	@Override
+	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("estado");
 		mv.addObject("estados", repositorioEstado.findAll());
 		return mv;
 	}
 	
-	@GetMapping("/estados")
+	@GetMapping("/add")
+	@Override
 	public ModelAndView add(Estado estado) {
-		ModelAndView mv = new ModelAndView("/estados");
+		ModelAndView mv = new ModelAndView("/addEstado");
 		mv.addObject("estado", estado);
 		return mv;
 	}
 	
 	@PostMapping("/buscarEstado")
-	public ModelAndView buscarEstado(String nome) {
+	@Override
+	public ModelAndView buscarPorNome(String nome) {
 		ModelAndView mv = new ModelAndView("estado");
 		List<Estado> est = repositorioEstado.buscarPorNome(nome);
 		mv.addObject("estados", est);
 		return mv;
 	}
 	
-	@GetMapping("/edit/{id}")
-	public ModelAndView alterar(@PathVariable ("id") long id) {
+	@GetMapping("/editar/{id}")
+	@Override
+	public ModelAndView editar(@PathVariable ("id") long id) {
 		Optional<Estado> est = repositorioEstado.findById(id);
 		Estado estado = est.get();
 		return add(estado);
 	}
 	
-	@GetMapping("/delete/{id}")
-	public String deletar(@PathVariable ("id") long id) {
+	@GetMapping("/remover/{id}")
+	@Override
+	public ModelAndView remover(@PathVariable ("id") long id) {
 		Optional<Estado> est = repositorioEstado.findById(id);
 		Estado estado = est.get();
 		repositorioEstado.delete(estado);
-		return "redirect:/estado";
+		return listar();
 	}
 	
-	@PostMapping("/save")
-	public ModelAndView save (@Valid Estado estado, BindingResult result) {
+	@PostMapping("/salvar")
+	@Override
+	public ModelAndView salvar(@Valid Estado estado, BindingResult result) {
 		if(result.hasErrors()) {
 			return add(estado);
 		}
 		repositorioEstado.saveAndFlush(estado);
-		return listarEstado();
+		return listar();
 	}
+
+	
 }

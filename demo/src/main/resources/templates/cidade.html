@@ -41,6 +41,23 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-lg-9">
+								<form th:action="@{/cidade/buscarCidade}" method="post" id="buscarEstado">
+										<div class="form-group">
+											<label class="col-md-2 control-label">Pesquisar
+												Estado</label>
+											<div class="col-md-8">
+												<input name="nome" class="form-control input-md"
+													type="text" id="nome" />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-md-2">
+												<button type="submit"
+													class="form-control input-md btn btn-primary"
+													value="Buscar" id="btnBuscar">Buscar</button>
+											</div>
+										</div>
+									</form>
 								<div class="table-responsive table--no-card m-b-30">
 									<table
 										class="table table-borderless table-striped table-earning">
@@ -57,8 +74,8 @@
 											<td th:text="${cidade.id}"></td>
 											<td th:text="${cidade.nome}"></td>
 											<td th:text="${cidade.estado.nome}"></td>
-											<td><a th:href="@{/alterar/{id}(id=${cidade.id})}">Alterar</a>
-												<a th:href="@{/remover/{id}(id=${cidade.id})}">Excluir</a></td>
+											<td><a th:href="@{/cidade/editar/{id}(id=${cidade.id})}">Alterar</a>
+												<a th:href="@{/cidade/remover/{id}(id=${cidade.id})}">Excluir</a></td>
 										</tr>
 										</tbody>
 									</table>

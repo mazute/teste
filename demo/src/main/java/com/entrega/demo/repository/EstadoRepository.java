@@ -9,7 +9,7 @@ import com.entrega.demo.model.Estado;
 
 public interface EstadoRepository extends JpaRepository<Estado, Long>{
 	
-	@Query("Select e from Estado e where e.nome like %?1%")
+	@Query("Select e from Estado e where e.nome like %?1% order by e.nome")
 	List<Estado> buscarPorNome(String nome);
 
 }

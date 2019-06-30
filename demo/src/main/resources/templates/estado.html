@@ -41,7 +41,7 @@
 						<div class="row">
 							<div class="col-lg-9">
 								<div class="table-responsive table--no-card m-b-30">
-									<form th:action="@{/buscarEstado}" method="post" id="buscarEstado">
+									<form th:action="@{/estado/buscarEstado}" method="post" id="buscarEstado">
 										<div class="form-group">
 											<label class="col-md-2 control-label">Pesquisar
 												Estado</label>
@@ -74,8 +74,8 @@
 												<td th:text="${estado.id}"></td>
 												<td th:text="${estado.nome}"></td>
 												<td th:text="${estado.sigla}"></td>
-												<td><a th:href="@{/edit/{id}(id=${estado.id})}">Alterar</a>
-													<a th:href="@{/delete/{id}(id=${estado.id})}">Excluir</a></td>
+												<td><a th:href="@{/estado/editar/{id}(id=${estado.id})}">Alterar</a>
+													<a th:href="@{/estado/remover/{id}(id=${estado.id})}">Excluir</a></td>
 											</tr>
 										</tbody>
 									</table>
