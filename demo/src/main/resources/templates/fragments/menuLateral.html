@@ -68,10 +68,10 @@
 				<div class="container-fluid">
 					<ul class="navbar-mobile__list list-unstyled">
 						<li class="has-sub"><a class="js-arrow" href="#"> <i
-								class="fas fa-tachometer-alt"></i>Dashboard
+								class="fas fa-tachometer-alt"></i>Cadastro
 						</a>
 							<ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-								<li><a href="index.html">Dashboard 1</a></li>
+								<li><a th:href="@{/estado/add}">Estado</a></li>
 								<li><a href="index2.html">Dashboard 2</a></li>
 								<li><a href="index3.html">Dashboard 3</a></li>
 								<li><a href="index4.html">Dashboard 4</a></li>
@@ -126,27 +126,29 @@
 				<nav class="navbar-sidebar">
 					<ul class="list-unstyled navbar__list">
 						<li class="has-sub"><a class="js-arrow" href="#"> <i
-								class="fas fa-tachometer-alt"></i>Dashboard
+								class="fas fa-tachometer-alt"></i>Cadastro
 						</a>
 							<ul class="list-unstyled navbar__sub-list js-sub-list">
-								<li><a href="index.html">Dashboard 1</a></li>
-								<li><a href="index2.html">Dashboard 2</a></li>
-								<li><a href="index3.html">Dashboard 3</a></li>
-								<li><a href="index4.html">Dashboard 4</a></li>
+								<li><a th:href="@{/cidade/add}">Cidade</a></li>
+								<li><a th:href="@{/cliente/add}">Cliente</a></li>
+								<li><a th:href="@{/estado/add}">Estado</a></li>
+								<li><a th:href="@{/funcionario/add}">Funcionario</a></li>
+								<li><a th:href="@{/produto/add}">Produto</a></li>
+								<li><a th:href="@{/medida/add}">Medida</a></li>
 							</ul></li>
-						<li><a href="chart.html"> <i class="fas fa-chart-bar"></i>Charts
+						<li><a th:href="@{/cidade/listar}"> <i class="fas fa-chart-bar"></i>Cidades
 						</a></li>
-						<li><a href="table.html"> <i class="fas fa-table"></i>Tables
+						<li><a th:href="@{/cliente/listar}"> <i class="fas fa-table"></i>Clientes
 						</a></li>
-						<li class="active"><a href="form.html"> <i
-								class="far fa-check-square"></i>Forms
+						<li class="active"><a th:href="@{/estado/listar}"> <i
+								class="far fa-check-square"></i>Estados
 						</a></li>
-						<li><a href="#"> <i class="fas fa-calendar-alt"></i>Calendar
+						<li><a th:href="@{/funcionario/listar}"> <i class="fas fa-calendar-alt"></i>Funcionários
 						</a></li>
-						<li><a href="map.html"> <i class="fas fa-map-marker-alt"></i>Maps
+						<li><a th:href="@{/produto/listar}"> <i class="fas fa-map-marker-alt"></i>Produtos
 						</a></li>
-						<li class="has-sub"><a class="js-arrow" href="#"> <i
-								class="fas fa-copy"></i>Pages
+						<li class="has-sub"><a class="js-arrow" th:href="@{/medida/listar}"> <i
+								class="fas fa-copy"></i>Medidas
 						</a>
 							<ul class="list-unstyled navbar__sub-list js-sub-list">
 								<li><a href="login.html">Login</a></li>
