@@ -33,7 +33,7 @@ public class FuncionarioController implements ControllerInterface<Funcionario>{
 	public ModelAndView add(Funcionario funcionario) {
 		ModelAndView mv = new ModelAndView("/addFuncionario");
 		mv.addObject("funcionario", funcionario);
-		mv.addObject("cidades", repositorioCidade.findAll());
+		mv.addObject("cidades", repositorioCidade.findN());
 		return mv;
 	}
 
@@ -41,7 +41,7 @@ public class FuncionarioController implements ControllerInterface<Funcionario>{
 	@Override
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("funcionario");
-		mv.addObject("funcionarios", repositorioFuncionario.findAll());
+		mv.addObject("funcionarios", repositorioFuncionario.findN());
 		return mv;
 	}
 

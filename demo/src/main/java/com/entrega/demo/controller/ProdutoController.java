@@ -40,7 +40,7 @@ public class ProdutoController implements ControllerInterface<Produto>{
 	@Override
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("produto");
-		mv.addObject("produtos", repositorioProduto.findAll());
+		mv.addObject("produtos", repositorioProduto.findN());
 		return mv;
 	}
 	

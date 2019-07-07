@@ -32,7 +32,7 @@ public class ClienteController implements ControllerInterface<Cliente>{
 	@Override
 	public ModelAndView add(Cliente cliente) {
 		ModelAndView mv = new ModelAndView("addCliente");
-		mv.addObject("cidades", repositorioCidade.findAll());
+		mv.addObject("cidades", repositorioCidade.findN());
 		mv.addObject("cliente", cliente);
 		return mv;
 	}
@@ -41,7 +41,7 @@ public class ClienteController implements ControllerInterface<Cliente>{
 	@Override
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("cliente");
-		mv.addObject("clientes", repositorioCliente.findAll());
+		mv.addObject("clientes", repositorioCliente.findN());
 		return mv;
 	}
 	

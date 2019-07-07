@@ -11,5 +11,8 @@ public interface CidadeRepository extends JpaRepository<Cidade, Long>{
 	
 	@Query("SELECT c FROM Cidade c WHERE c.nome LIKE %?1% order by c.nome")
 	List<Cidade> buscarPorNome(String nome);
+	
+	@Query("select c from Cidade c join fetch c.estado")
+	List<Cidade> findN();
 
 }

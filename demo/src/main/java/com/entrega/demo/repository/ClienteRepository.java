@@ -11,4 +11,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
 	@Query("Select c from Cliente c where c.nome like %?1% order by c.nome")
 	List<Cliente> buscarPorNome(String nome);
+	
+	@Query("select c from Cliente c join fetch c.cidade cid join fetch cid.estado order by c.nome")
+	List<Cliente> findN();
 }

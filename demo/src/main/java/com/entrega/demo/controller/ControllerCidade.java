@@ -42,7 +42,7 @@ public class ControllerCidade implements ControllerInterface<Cidade>{
 	@Override
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("cidade");
-		mv.addObject("cidades", repositorioCidade.findAll());
+		mv.addObject("cidades", repositorioCidade.findN());
 		return mv;
 	}
 	
